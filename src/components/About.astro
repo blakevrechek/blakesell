@@ -1,0 +1,10 @@
+---
+import Section from './Section.astro';
+import { about } from '../content/site';
+---
+<Section heading={about.heading}>
+  <div class="measure space-y-5 text-lg">
+    {about.body.map((p) => <p>{p}</p>)}
+    <p class="border-l-2 border-accent pl-4 text-base"><strong>{about.disclaimer.lead}</strong> {about.disclaimer.body}</p>
+  </div>
+</Section>

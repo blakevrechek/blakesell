@@ -1,0 +1,27 @@
+---
+import Section from './Section.astro';
+import { config, pricing } from '../content/site';
+---
+<Section id={pricing.id} heading={pricing.heading} tone="panel">
+  <div class="grid gap-6 md:grid-cols-3">
+    {pricing.plans.map((p) => {
+      const price = config.prices[p.priceKey];
+      return (
+        <article class="flex min-w-0 flex-col rounded-sm border border-rule bg-paper p-6 md:p-8">
+          <h3 class="eyebrow mb-4">{p.name}</h3>
+          {price && <p class="mb-6 text-3xl font-semibold [overflow-wrap:anywhere]">{p.prefix}{price}{p.suffix}</p>}
+          <dl class="mt-auto space-y-4 border-t border-rule pt-5 text-base">
+            <div><dt class="font-sans text-sm font-semibold">Terms</dt><dd class="text-muted">{p.terms}</dd></div>
+            <div><dt class="font-sans text-sm font-semibold">Includes</dt><dd class="text-muted">{p.includes}</dd></div>
+          </dl>
+        </article>
+      );
+    })}
+  </div>
+  <div class="measure mt-10 space-y-3">
+    {pricing.notes.map((n) => <p><strong>{n.lead}</strong> {n.body}</p>)}
+    <p>
+      <strong>{pricing.guarantee.lead}</strong> {pricing.guarantee.before}<a href="/terms">{pricing.guarantee.linkText}</a>{pricing.guarantee.after}
+    </p>
+  </div>
+</Section>

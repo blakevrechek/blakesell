@@ -1,0 +1,21 @@
+---
+import Section from './Section.astro';
+import { config, proof } from '../content/site';
+const cs = config.caseStudy;
+const title = cs.permissionInWriting === 'NO' ? cs.anonymizedName : cs.displayName;
+---
+{cs.show && (
+  <Section heading={proof.heading}>
+    <article class="max-w-3xl rounded-sm border border-rule bg-white p-6 md:p-10">
+      <h3 class="mb-6 text-2xl font-semibold">{title}</h3>
+      <dl class="space-y-4">
+        {cs.bullets.map((b) => (
+          <div class="grid gap-1 md:grid-cols-[8rem_1fr] md:gap-6">
+            <dt class="eyebrow pt-1">{b.label}</dt>
+            <dd>{b.text}</dd>
+          </div>
+        ))}
+      </dl>
+    </article>
+  </Section>
+)}

@@ -1,0 +1,16 @@
+---
+import Section from './Section.astro';
+import { install } from '../content/site';
+---
+<Section id={install.id} heading={install.heading}>
+  <dl class="divide-y divide-rule border-y border-rule">
+    {install.systems.map((s) => (
+      <div class="grid gap-2 py-6 md:grid-cols-[12rem_1fr_1.4fr] md:gap-8">
+        <dt class="eyebrow pt-1">{s.name}</dt>
+        <dd class="text-xl font-semibold">{s.outcome}</dd>
+        <dd class="text-muted">{s.description}</dd>
+      </div>
+    ))}
+  </dl>
+  <p class="measure mt-8"><strong>{install.siteNote.lead}</strong> {install.siteNote.body}</p>
+</Section>
