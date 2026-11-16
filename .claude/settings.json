@@ -1,0 +1,15 @@
+{
+  "extraKnownMarketplaces": {
+    "blake-stack": {
+      "source": {
+        "source": "github",
+        "repo": "blakevrechek/blake-stack"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "web-security-baseline@blake-stack": true,
+    "gsap-skills@blake-stack": true,
+    "impeccable@blake-stack": true
+  }
+}
