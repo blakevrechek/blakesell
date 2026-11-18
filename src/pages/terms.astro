@@ -1,0 +1,8 @@
+---
+import Base from '../layouts/Base.astro';
+import LegalPage from '../components/LegalPage.astro';
+import { meta, terms } from '../content/site';
+---
+<Base title={meta.terms.title} description={meta.terms.description} path="/terms">
+  <LegalPage {...terms} />
+</Base>

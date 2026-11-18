@@ -1,0 +1,16 @@
+---
+import { config, hero } from '../content/site';
+---
+<section aria-labelledby="hero-heading">
+  <div class="mx-auto max-w-6xl px-4 pb-20 pt-16 sm:px-6 md:pb-28 md:pt-28">
+    <p class="eyebrow mb-6">{config.serviceArea}</p>
+    <h1 id="hero-heading" class="max-w-[18ch] text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
+      {hero.h1}
+    </h1>
+    <p class="measure mt-8 text-lg text-muted md:text-xl">{hero.subhead}</p>
+    <div class="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
+      <a href={config.bookingUrl} class="btn">{hero.primary}</a>
+      <a href={hero.secondary.href} class="font-sans text-base font-semibold">{hero.secondary.label}</a>
+    </div>
+  </div>
+</section>

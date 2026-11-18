@@ -1,0 +1,8 @@
+---
+import Base from '../layouts/Base.astro';
+import LegalPage from '../components/LegalPage.astro';
+import { meta, privacy } from '../content/site';
+---
+<Base title={meta.privacy.title} description={meta.privacy.description} path="/privacy">
+  <LegalPage {...privacy} />
+</Base>

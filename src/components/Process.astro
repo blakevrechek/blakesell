@@ -1,0 +1,16 @@
+---
+import Section from './Section.astro';
+import { process } from '../content/site';
+---
+<Section id={process.id} heading={process.heading} tone="panel">
+  <ol class="grid gap-10 md:grid-cols-4 md:gap-8">
+    {process.steps.map((s, i) => (
+      <li class="border-t-2 border-accent pt-5">
+        <span class="mb-3 block font-sans text-sm font-semibold text-accent" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+        <h3 class="mb-2 text-xl font-semibold">{s.title}</h3>
+        <p class="text-muted">{s.body}</p>
+      </li>
+    ))}
+  </ol>
+  <p class="measure mt-12"><strong>{process.note.lead}</strong> {process.note.body}</p>
+</Section>

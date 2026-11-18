@@ -1,0 +1,12 @@
+---
+import { footer } from '../content/site';
+---
+<footer class="mt-24 border-t border-rule">
+  <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-10 font-sans text-sm text-muted sm:px-6 md:flex-row md:items-center md:justify-between">
+    <p>{footer.copyright}</p>
+    <p>{footer.line}</p>
+    <ul class="flex gap-6">
+      {footer.links.map((l) => <li><a href={l.href} class="text-muted hover:text-accent">{l.label}</a></li>)}
+    </ul>
+  </div>
+</footer>

@@ -1,0 +1,28 @@
+{
+  "name": "blakesell",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && node scripts/postbuild.mjs",
+    "preview": "astro preview",
+    "prelaunch": "node scripts/prelaunch.mjs",
+    "build:cf": "npm run build && node scripts/cf-gate.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/public-sans": "^5.3.0",
+    "@fontsource-variable/source-serif-4": "^5.3.1",
+    "astro": "^7.4.12"
+  },
+  "devDependencies": {
+    "@fontsource/source-serif-4": "^5.3.1",
+    "@resvg/resvg-js": "^2.6.2",
+    "@tailwindcss/vite": "^4.3.5",
+    "satori": "^0.63.2",
+    "tailwindcss": "^4.3.5"
+  }
+}

@@ -1,0 +1,75 @@
+---
+import Section from './Section.astro';
+import { config, contact } from '../content/site';
+const f = contact.form;
+// Public site key. Falls back to Cloudflare's documented always-pass test key
+// for local and preview builds. prelaunch fails if production still uses it.
+const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '1x00000000000000000000AA';
+---
+<Section id={contact.id} heading={contact.heading}>
+  <div class="grid gap-12 md:grid-cols-[1fr_1.4fr] md:gap-16">
+    <div class="space-y-6">
+      <p class="text-lg text-muted">{contact.intro}</p>
+      <a href={config.bookingUrl} class="btn">{contact.bookLabel}</a>
+      <p class="font-sans text-sm">
+        <span class="block text-muted">{contact.emailLabel}</span>
+        <a href={`mailto:${config.email}`} class="text-base font-semibold">{config.email}</a>
+      </p>
+    </div>
+
+    <form
+      id="inquiry-form"
+      action="/api/inquiry"
+      method="post"
+      class="space-y-5 rounded-sm border border-rule bg-white p-6 md:p-8"
+      aria-labelledby="inquiry-heading"
+      data-error-generic={f.errorGeneric}
+      data-error-turnstile={f.errorTurnstile}
+      data-sending={f.sending}
+      novalidate
+    >
+      <h3 id="inquiry-heading" class="text-xl font-semibold">{f.heading}</h3>
+
+      <div>
+        <label for="f-name" class="field-label">{f.fields.name.label}</label>
+        <input id="f-name" name="name" type="text" class="field" required maxlength={f.fields.name.max} autocomplete="name" />
+      </div>
+      <div>
+        <label for="f-email" class="field-label">{f.fields.email.label}</label>
+        <input id="f-email" name="email" type="email" class="field" required maxlength={f.fields.email.max} autocomplete="email" />
+      </div>
+      <div>
+        <label for="f-org" class="field-label">
+          {f.fields.organization.label} <span class="font-normal text-muted">({f.fields.organization.optional})</span>
+        </label>
+        <input id="f-org" name="organization" type="text" class="field" maxlength={f.fields.organization.max} autocomplete="organization" />
+      </div>
+      <div>
+        <label for="f-type" class="field-label">{f.fields.type.label}</label>
+        <select id="f-type" name="type" class="field">
+          {f.fields.type.options.map((o) => <option value={o}>{o}</option>)}
+        </select>
+      </div>
+      <div>
+        <label for="f-message" class="field-label">{f.fields.message.label}</label>
+        <textarea id="f-message" name="message" rows="5" class="field" required maxlength={f.fields.message.max}></textarea>
+      </div>
+
+      <!-- Honeypot. Hidden from people and assistive tech; bots fill it. -->
+      <div aria-hidden="true" class="absolute -left-[9999px] h-px w-px overflow-hidden">
+        <label for="f-website">Leave this empty</label>
+        <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+      </div>
+
+      <div id="turnstile" data-sitekey={siteKey}></div>
+
+      <p class="font-sans text-sm font-semibold">{f.warning}</p>
+
+      <p id="form-status" role="alert" aria-live="assertive" class="font-sans text-sm font-semibold text-error empty:hidden"></p>
+      <noscript><p class="font-sans text-sm">{f.noscript}</p></noscript>
+
+      <button type="submit" class="btn w-full sm:w-auto">{f.submit}</button>
+    </form>
+  </div>
+</Section>
+<script is:inline src="/scripts/form.js" defer></script>

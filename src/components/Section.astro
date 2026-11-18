@@ -1,0 +1,12 @@
+---
+interface Props { id?: string; heading: string; eyebrow?: string; tone?: 'plain' | 'panel' }
+const { id, heading, eyebrow, tone = 'plain' } = Astro.props;
+const headingId = `${id ?? heading.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-heading`;
+---
+<section id={id} aria-labelledby={headingId} class={tone === 'panel' ? 'bg-panel border-y border-rule' : ''}>
+  <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-24">
+    {eyebrow && <p class="eyebrow mb-3">{eyebrow}</p>}
+    <h2 id={headingId} class="mb-10 text-3xl font-semibold md:text-4xl">{heading}</h2>
+    <slot />
+  </div>
+</section>

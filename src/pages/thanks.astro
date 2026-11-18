@@ -1,0 +1,15 @@
+---
+import Base from '../layouts/Base.astro';
+import { config, hero, meta, thanks } from '../content/site';
+---
+<Base title={meta.thanks.title} description={meta.thanks.description} path="/thanks" noindex>
+  <section class="mx-auto max-w-6xl px-4 py-24 sm:px-6 md:py-32">
+    <h1 class="max-w-[20ch] text-4xl font-semibold md:text-5xl">{thanks.h1}</h1>
+    <p class="measure mt-6 text-lg text-muted">{thanks.body}</p>
+    <p class="mt-10 font-sans text-sm font-semibold">{thanks.bookPrompt}</p>
+    <div class="mt-4 flex flex-wrap items-center gap-6">
+      <a href={config.bookingUrl} class="btn">{hero.primary}</a>
+      <a href="/" class="font-sans font-semibold">{thanks.back}</a>
+    </div>
+  </section>
+</Base>
