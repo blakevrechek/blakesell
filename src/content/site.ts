@@ -107,7 +107,7 @@ export const hero = {
   h1: 'Your office is losing work it already earned.',
   subhead:
     'Missed calls, slow follow-up, and reviews nobody asked for. I install the systems that handle all three, then keep them running.',
-  primary: 'Book a 20-minute call',
+  primary: 'Book a 30-minute call',
   secondary: { label: 'See what I install', href: '#install' },
 };
 
@@ -164,7 +164,7 @@ export const process = {
   id: 'process',
   heading: 'How it works',
   steps: [
-    { title: 'Call.', body: 'Twenty minutes. I ask how work reaches you and where it stalls.' },
+    { title: 'Call.', body: 'Thirty minutes. I ask how work reaches you and where it stalls.' },
     { title: 'Scope.', body: 'You get a written scope with a fixed price and a delivery date.' },
     { title: 'Install.', body: 'I build it, test it with your staff, and document it.' },
     { title: 'Care.', body: 'A monthly plan covers monitoring, fixes, and small changes.' },
@@ -269,7 +269,7 @@ export const contact = {
   id: 'contact',
   heading: 'Start with a call',
   intro: 'Book a time that works for you, or tell me what is stalling and I will reply by email.',
-  bookLabel: 'Book a 20-minute call',
+  bookLabel: 'Book a 30-minute call',
   emailLabel: 'Or email',
   form: {
     heading: 'Send an inquiry',
