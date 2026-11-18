@@ -21,7 +21,7 @@ export const config = {
   /** Bare hostname, no protocol, no trailing slash. Example shape: name.com */
   domain: '[DOMAIN]',
   email: '[EMAIL]',
-  bookingUrl: '[BOOKING_URL]',
+  bookingUrl: 'https://cal.com/blakev/free?duration=30',
   serviceArea: 'Western Massachusetts and remote',
 
   /**

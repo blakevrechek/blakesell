@@ -172,9 +172,10 @@ applicable. XSS and headers:
 10. **FAQ 4 insurance clause is off** until `insurancePolicyBound` is set.
 11. **The About copy is the spec draft verbatim.** Open edits are not applied:
     "closed" (your role in the transactions), "leaked file," and full name.
-12. **Booking copy says "30-minute call"** (the spec said 20). Matches the 30-minute
-    option on your Cal.com event. Point `bookingUrl` at that duration, or the
-    booker may pick 15 or 60.
+12. **Booking copy says "30-minute call"** (the spec said 20). `bookingUrl` is
+    `https://cal.com/blakev/free?duration=30` to preselect the 30-minute option.
+    Not tested from the build container (cal.com is blocked there). Click it once
+    to confirm it lands on 30 minutes.
 13. **The privacy and terms drafts have effective-date placeholders,** and the
     terms page uses your LLC name, so neither page can launch before the LLC exists.
 14. **Cloudflare preview URLs** might already get a `noindex` header from Cloudflare
